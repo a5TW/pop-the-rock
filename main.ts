@@ -1,6 +1,9 @@
 radio.onReceivedNumber(function (receivedNumber) {
     if (receivedNumber == 1) {
-        basic.showString("You found a bush, to interact press A, to ignore press B")
+        basic.showString("You found a bush! To interact press A+B")
+    }
+    if (receivedNumber == 2) {
+        basic.showString("You found nothing.")
     }
 })
 input.onButtonPressed(Button.A, function () {
@@ -49,7 +52,10 @@ basic.forever(function () {
     radio.setGroup(92749)
 })
 basic.forever(function () {
-    if (sprite.get(LedSpriteProperty.X) == 1 && sprite.get(LedSpriteProperty.Y) == 2 && roomxy == "1,2") {
+    if (sprite.get(LedSpriteProperty.X) == 1 && sprite.get(LedSpriteProperty.Y) == 2 && roomxy == "0,1") {
         radio.sendNumber(1)
+        if (input.buttonIsPressed(Button.AB)) {
+            radio.sendNumber(2)
+        }
     }
 })
