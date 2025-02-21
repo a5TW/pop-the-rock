@@ -39,7 +39,7 @@ basic.forever(function () {
         roomy += -1
         sprite.set(LedSpriteProperty.Y, 0)
     }
-    if (input.buttonIsPressed(Button.A) && sprite.get(LedSpriteProperty.X) == 1) {
+    if (input.buttonIsPressed(Button.A) && sprite.get(LedSpriteProperty.X) == 0) {
         roomx += -1
         sprite.set(LedSpriteProperty.X, 4)
     }
